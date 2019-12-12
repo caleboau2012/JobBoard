@@ -1,5 +1,11 @@
 # Build a Job Board with Python & Flask
 
+## Requirements
+
+- venv
+- pip
+- python (obviously :-) )
+
 ## Verify Local Environment
 
 ### Create Virtual Environment
@@ -16,6 +22,12 @@ macOS & Linux
 
 ```
 python -m venv ./venv
+```
+
+OR
+
+```
+python3 -m venv ./venv
 ```
 
 Once that completes, also run this command from the same folder.
