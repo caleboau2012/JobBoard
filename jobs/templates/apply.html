@@ -1,0 +1,38 @@
+{% extends "layout.html" %}
+{% block content %}
+  {% if complete != 'done' %}
+    <h1>New Application</h1>
+    <h3>{{ job['employer_name'] }} : <small>{{ job['title'] }}</small></h3>
+    <form method="post" enctype=multipart/form-data>
+      <div class="field">
+          <label class="label">Full Name</label>
+          <div class="control">
+            <input class="input" type="text" name="name" id="name" required>
+          </div>
+        </div>
+      <div class="field">
+        <label class="label">Cover Letter</label>
+        <div class="control">
+          <textarea class="textarea" name="cover_letter" id="cover_letter" required></textarea>
+        </div>
+      </div>
+      <div class="field">
+        <label class="label">Resume</label>
+        <div class="control">
+          <input class="input" type="file" name="file" id="file" required>
+        </div>
+      </div>
+      <div class="field is-grouped">
+        <div class="control">
+          <button class="button is-link">Submit</button>
+        </div>
+        <div class="control">
+          <a class="button is-text" href="{{ url_for('jobs') }}">Cancel</a>
+        </div>
+      </div>
+    </form>
+  {% else %}
+    <h2>Your application was successful</h2>
+    <a class="button is-text" href="{{ url_for('jobs') }}">Continue Job Search</a>
+  {% endif %}
+{% endblock %}

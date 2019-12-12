@@ -1,0 +1,39 @@
+{% from '_macros.html' import show_job, show_jobs with context %}
+<!doctype html>
+<html>
+  <head>
+    <title>Job Board</title>
+    <link rel="stylesheet" href={{ url_for('static', filename='css/bulma.min.css') }}/>
+    <link rel="stylesheet" href={{ url_for('static', filename='css/app.css') }}/>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css"/>
+  </head>
+  <body>
+    <div class="container top">
+      <div class="content">
+        <div class="columns">
+          <div class="column">
+            <a href="{{ url_for('jobs') }}"><h1 class="h1">Job Board</h1></a>
+          </div>
+          <div class="column is-one-fifth">
+              {% if session.logged_in %}
+                <a class="button is-text is-pulled-right" href="{{ url_for('logout') }}">Logout</a>
+              {% else %}
+                <a class="button is-text is-pulled-right" href="{{ url_for('login') }}">Login</a>
+              {% endif %}
+          </div>
+        </div>
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+          <ul class=flashes>
+          {% for message in messages %}
+            <li>{{ message }}</li>
+          {% endfor %}
+          </ul>
+        {% endif %}
+        {% endwith %}
+        {% block content %}
+        {% endblock %}
+      </div>
+    </div>
+  </body>
+</html>
