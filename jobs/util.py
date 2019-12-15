@@ -1,7 +1,7 @@
-import sqlite3
+import sqlite3, os
 from flask import g
 
-PATH = "db/jobs.sqlite"
+PATH = os.getenv("DB_PATH", "db/jobs.sqlite")
 ALLOWED_EXTENSIONS = {"txt", "pdf", "doc", "docx"}
 
 

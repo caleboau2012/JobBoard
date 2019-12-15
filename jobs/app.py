@@ -3,8 +3,8 @@ from flask import Flask, render_template, g, request, redirect, url_for, flash, 
 from werkzeug.utils import secure_filename
 from .util import execute_sql, allowed_file
 
-UPLOAD_FOLDER = "resumes"
-ADMIN = ("admin@jobboard.com", "ommletteDuFromage")
+UPLOAD_FOLDER = os.getenv("UPLOAD_FOLDER", "resumes")
+ADMIN = (os.getenv("ADMIN_USERNAME"), os.getenv("ADMIN_PASSWORD"))
 
 app = Flask(__name__)
 app.secret_key = "1234567890"

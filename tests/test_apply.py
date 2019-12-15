@@ -86,4 +86,3 @@ def test_app_apply_post_request_check():
     assert name in body, "Create the `name` variable"
     assert cover_letter in body, "Create the `cover_letter` variable"
     assert date in body, "Create the `date` variable"
-

@@ -93,11 +93,11 @@ def test_app_add_post_request_check():
         "value/value/attr": "form",
         "value/value/value/id": "request",
     }
-    
+
     assert (
         post and method and request and eq
     ), 'Add an `if` statement to test if the request method equals "POST"'
-            
+
     assert employer_id in body, "Create the `employee_id` variable"
     assert salary in body, "Create the `rating` variable"
     assert title in body, "Create the `title` variable"
@@ -129,4 +129,3 @@ def test_app_redirect_to_jobs():
     assert "redirect:jobs:url_for" in get_functions(
         app.add
     ), "redirect back to the jobs page"
-

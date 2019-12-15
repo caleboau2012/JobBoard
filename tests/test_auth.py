@@ -44,12 +44,12 @@ def test_app_login_route():
 
     assert jobs in return_values, "Return a call to `redirect` and `url_for`"
 
+
 @pytest.mark.test_app_logout_route
 def test_app_logout_route():
     assert "logout" in dir(app), "Create the `logout` function"
-    assert (
-        "route:/logout"
-        in get_functions(app.logout)
+    assert "route:/logout" in get_functions(
+        app.logout
     ), "Add a route decorator with the correct URL pattern and methods"
     return_values = get_functions_returns(app.logout)
     jobs = {
@@ -94,11 +94,11 @@ def test_app_login_post_request_check():
         "value/value/attr": "form",
         "value/value/value/id": "request",
     }
-    
+
     assert (
         post and method and request and eq
     ), 'Add an `if` statement to test if the request method equals "POST"'
-            
+
     assert email in body, "Create the `email` variable"
     assert password in body, "Create the `password` variable"
 
@@ -112,6 +112,7 @@ def test_login_redirect_to_jobs():
         app.login
     ), "redirect back to the jobs page"
 
+
 @pytest.mark.test_logout_redirect_to_jobs
 def test_login_redirect_to_jobs():
     assert "logout" in dir(app), "Create the `logout` function"
@@ -120,4 +121,3 @@ def test_login_redirect_to_jobs():
     assert "redirect:jobs:url_for" in get_functions(
         app.logout
     ), "redirect back to the jobs page"
-
