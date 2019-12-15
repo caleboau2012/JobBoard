@@ -7,7 +7,7 @@ UPLOAD_FOLDER = os.getenv("UPLOAD_FOLDER", "resumes")
 ADMIN = (os.getenv("ADMIN_USERNAME"), os.getenv("ADMIN_PASSWORD"))
 
 app = Flask(__name__)
-app.secret_key = "1234567890"
+app.secret_key = os.getenv("APP_SECRET")
 
 # create the folders when setting up your app
 os.makedirs(os.path.join(app.instance_path, UPLOAD_FOLDER), exist_ok=True)
