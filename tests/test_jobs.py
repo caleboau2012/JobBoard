@@ -21,9 +21,7 @@ def test_app_job_template():
     assert "layout.html" in template_extends(
         "job"
     ), "The `job.html` template does not extend `layout.html`."
-    assert "content" in template_block(
-        "job"
-    ), "Have you added a template `block` called `content`?"
+    assert "content" in template_block("job"), "Add a template `block` called `content`"
     assert "show_job:job" in template_functions(
         "job", "show_job"
     ), "Call the `show_job` macro in the `job.html` file"
@@ -47,7 +45,7 @@ def test_app_job_route():
 
 @pytest.mark.test_app_job_route_decorator
 def test_app_job_route_decorator():
-    assert "job" in dir(app), "Create the `job` function?"
+    assert "job" in dir(app), "Create the `job` function"
     assert "route:/job/<job_id>" in get_functions(
         app.job
     ), "Add a `job_id` parameter to the job function"

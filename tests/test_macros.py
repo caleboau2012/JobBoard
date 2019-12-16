@@ -64,7 +64,7 @@ def test_show_job_macro_body():
     assert "job:salary" in template_variables("_macros"), "Not showing the job salary"
     assert "job:description" in template_variables(
         "_macros"
-    ), "Not showing the job description?"
+    ), "Not showing the job description"
 
 
 @pytest.mark.test_show_jobs_macro_definition

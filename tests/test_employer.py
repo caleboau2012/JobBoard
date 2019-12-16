@@ -113,10 +113,10 @@ def test_app_employer_route():
 
 @pytest.mark.test_app_employer_route_employers
 def test_app_employer_route_employers():
-    assert "employer" in dir(app), "Have you created the `employer` function?"
+    assert "employer" in dir(app), "Create the `employer` function"
     assert (
         "employer_id" in inspect.getfullargspec(app.employer).args
-    ), "Add the correct parameters to the `employer` function parameter list?"
+    ), "Add the correct parameters to the `employer` function parameter list"
     execute_sql = (
         "execute_sql:SELECT * FROM employer WHERE id=?:employer_id:single:True"
     )

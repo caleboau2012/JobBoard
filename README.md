@@ -1,10 +1,10 @@
-# Build a Job Board with Python & Flask
+# Job Board with Python & Flask
 
 ## Requirements
 
 - venv
 - pip
-- python (obviously :-) )
+- python
 
 ## Verify Local Environment
 
@@ -54,19 +54,18 @@ If you want to be able to add, delete and edit jobs, you should copy/rename the 
 
 ### Verify Setup
 
-In order to verify that everything is setup correctly, run the following command, which should show you the failing tests. This is good! We'll be fixing this test once we jump into the build step.
+In order to verify that everything is setup correctly, run the tests using the following command.
 
 ```
 pytest
 ```
-
-Every time you want to check your work locally you can type that command, and it will report the status of every task in the project.
 
 ### Previewing Your Work
 
 You can preview your work by running `flask run` in the root of your fork and then visit`http://localhost:5000` in your browser.
 
 Alternatively, you can view this app live on http://job-board-flask.herokuapp.com/
+
 To login to the admin, use
 USERNAME=admin@jobboard.com
 PASSWORD=ommletteDuFromage

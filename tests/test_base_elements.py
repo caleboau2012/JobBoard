@@ -14,7 +14,7 @@ from .utils import (
 
 @pytest.mark.test_app_import_flask
 def test_app_import_flask():
-    assert "Flask" in dir(app), "Import the `Flask` class from `flask`?"
+    assert "Flask" in dir(app), "Import the `Flask` class from `flask`"
     assert inspect.isclass(app.Flask), "`Flask` is not a class."
     assert "render_template" in dir(app), "`render_template` has not been imported."
     assert inspect.isfunction(
@@ -24,7 +24,7 @@ def test_app_import_flask():
 
 @pytest.mark.test_app_create_flask_app
 def test_app_create_flask_app():
-    assert "app" in dir(app), "Create an instance of the `Flask` class called `app`?"
+    assert "app" in dir(app), "Create an instance of the `Flask` class called `app`"
     assert isinstance(
         app.app, app.Flask
     ), "`app` is not an instance of the `Flask` class."
@@ -48,8 +48,8 @@ def test_index_template():
 
 @pytest.mark.test_app_index_route_function
 def test_app_index_route_function():
-    assert "app" in dir(app), "Create an instance of the `Flask` class called `app`?"
-    assert "jobs" in dir(app), "Create the `jobs` function?"
+    assert "app" in dir(app), "Create an instance of the `Flask` class called `app`"
+    assert "jobs" in dir(app), "Create the `jobs` function"
     result = [
         item
         for item in get_functions(app.jobs)
@@ -60,22 +60,22 @@ def test_app_index_route_function():
     assert (
         return_values["value/args/s"] == "index.html"
         and return_values["value/func/id"] == "render_template"
-    ), "Return the `render_template` call?"
+    ), "Return the `render_template` call"
 
 
 @pytest.mark.test_app_route_decoractors
 def test_app_route_decoractors():
-    assert "app" in dir(app), "Create an instance of the `Flask` class called `app`?"
+    assert "app" in dir(app), "Create an instance of the `Flask` class called `app`"
     assert template_exists(
         "index"
     ), "The `index.html` template does not exist in the `templates` folder."
-    assert "jobs" in dir(app), "Create the `jobs` function?"
+    assert "jobs" in dir(app), "Create the `jobs` function"
 
     rules = list_routes(app.app)
 
     assert (
         "jobs:GET,HEAD,OPTIONS:/" in rules
-    ), "Decorate the `jobs` function with the `/` route?"
+    ), "Decorate the `jobs` function with the `/` route"
     assert (
         "jobs:GET,HEAD,OPTIONS:/jobs" in rules
-    ), "Decorate the `jobs` function with the `/jobs` route?"
+    ), "Decorate the `jobs` function with the `/jobs` route"
